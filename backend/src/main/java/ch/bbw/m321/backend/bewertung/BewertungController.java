@@ -4,4 +4,5 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class BewertungController {
+    // TODO: MongoDB einbinden -> www.mongodb.com/de-de
 }
