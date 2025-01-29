@@ -1,4 +1,4 @@
-package ch.bbw.m321.backend.bestellung;
+package ch.bbw.m321.bestellungservice.bestellung;
 
 import org.springframework.stereotype.Service;
 

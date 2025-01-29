@@ -1,4 +1,4 @@
 rootProject.name = 'shop-anwendung'
 include 'eureka-server'
 include 'produktkatalog-service'
-//include 'service-b'
+include 'bestellung-service'

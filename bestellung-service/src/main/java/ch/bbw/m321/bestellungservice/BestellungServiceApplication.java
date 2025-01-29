@@ -1,13 +1,13 @@
-package ch.bbw.m321.produktkatalogservice;
+package ch.bbw.m321.bestellungservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProduktkatalogServiceApplication {
+public class BestellungServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProduktkatalogServiceApplication.class, args);
+        SpringApplication.run(BestellungServiceApplication.class, args);
     }
 
 }

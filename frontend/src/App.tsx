@@ -2,16 +2,23 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
-    const [data, setData] = useState<{ name: string }>();
+    const [produktkatalog, setProduktkatalog] = useState<{ name: string }>();
+    const [warenkorb, setWarenkorb] = useState<{ product: string }>();
+    const [bestellung, setBestellung] = useState<{ bestellung: string }>()
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://host.docker.internal:8081/api');
-                const result = await response.json();
-                setData(result);
+                const produktkatalog = await fetch('http://host.docker.internal:8081/produktkatalog/getAll');
+                setProduktkatalog(await produktkatalog.json());
+
+                const warenkorb = await fetch('http://host.docker.internal:8081/warenkorb/getAll');
+                setWarenkorb(await warenkorb.json());
+
+                const bestellung = await fetch('http://host.docker.internal:8082/bestellung/getAll');
+                setBestellung(await bestellung.json());
             } catch (e: any) {
                 setError(e.message);
             }
@@ -39,7 +46,9 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <p>{data?.name}</p>
+                <p>{produktkatalog?.name}</p>
+                <p>{warenkorb?.product}</p>
+                <p>{bestellung?.bestellung}</p>
             </header>
         </div>
     );
