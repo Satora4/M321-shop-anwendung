@@ -12,7 +12,7 @@ function App() {
                 const response = await fetch('http://host.docker.internal:8081/api');
                 const result = await response.json();
                 setData(result);
-            } catch (e:any) {
+            } catch (e: any) {
                 setError(e.message);
             }
         };
@@ -21,8 +21,20 @@ function App() {
             .finally(() => setLoading(false));
     });
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return (
+        <div className="App">
+            <header className="App-header">
+                <p>Loading ...</p>
+            </header>
+        </div>
+    );
+    if (error) return (
+        <div className="App">
+            <header className="App-header">
+                <p>Error: {error}</p>
+            </header>
+        </div>
+    );
 
     return (
         <div className="App">

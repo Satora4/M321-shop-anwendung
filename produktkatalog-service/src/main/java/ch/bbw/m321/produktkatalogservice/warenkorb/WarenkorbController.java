@@ -1,4 +1,4 @@
-package ch.bbw.m321.backend.warenkorb;
+package ch.bbw.m321.produktkatalogservice.warenkorb;
 
 import org.springframework.stereotype.Controller;
 
