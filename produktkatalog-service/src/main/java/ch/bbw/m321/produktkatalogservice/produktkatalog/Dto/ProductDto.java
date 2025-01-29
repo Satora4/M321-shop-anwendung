@@ -1,4 +1,4 @@
-package ch.bbw.m321.backend.produktkatalog.Dto;
+package ch.bbw.m321.produktkatalogservice.produktkatalog.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
