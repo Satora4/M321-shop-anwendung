@@ -11,6 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="backend" target="17" />
       <module name="shop-anwendung.service-a" target="17" />
       <module name="shop-anwendung.service-a.main" target="17" />
       <module name="shop-anwendung.service-a.test" target="17" />
