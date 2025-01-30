@@ -1,0 +1,5 @@
+rootProject.name = 'shop-anwendung'
+include 'eureka-server'
+include 'produktkatalog-service'
+include 'bestellung-service'
+include 'bewertung-service'

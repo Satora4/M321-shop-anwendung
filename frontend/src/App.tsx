@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [produktkatalog, setProduktkatalog] = useState<{ name: string }>();
+    const [warenkorb, setWarenkorb] = useState<{ product: string }>();
+    const [bestellung, setBestellung] = useState<{ bestellung: string }>()
+    const [bewertung, setBewertung] = useState<{ bewertung: string }>()
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const produktkatalog = await fetch('http://host.docker.internal:8081/produktkatalog/getAll');
+                setProduktkatalog(await produktkatalog.json());
+
+                const warenkorb = await fetch('http://host.docker.internal:8081/warenkorb/getAll');
+                setWarenkorb(await warenkorb.json());
+
+                const bestellung = await fetch('http://host.docker.internal:8082/bestellung/getAll');
+                setBestellung(await bestellung.json());
+
+                const bewertung = await fetch('http://host.docker.internal:8083/bewertung/getAll');
+                setBewertung(await bewertung.json());
+            } catch (e: any) {
+                setError(e.message);
+            }
+        };
+
+        fetchData()
+            .finally(() => setLoading(false));
+    });
+
+    if (loading) return (
+        <div className="App">
+            <header className="App-header">
+                <p>Loading ...</p>
+            </header>
+        </div>
+    );
+    if (error) return (
+        <div className="App">
+            <header className="App-header">
+                <p>Error: {error}</p>
+            </header>
+        </div>
+    );
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <p>{produktkatalog?.name}</p>
+                <p>{warenkorb?.product}</p>
+                <p>{bestellung?.bestellung}</p>
+                <p>{bewertung?.bewertung}</p>
+            </header>
+        </div>
+    );
 }
 
 export default App;

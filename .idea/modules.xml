@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Shop-Anwendung.iml" filepath="$PROJECT_DIR$/Shop-Anwendung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backend.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bewertung-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bewertung-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend.iml" filepath="$PROJECT_DIR$/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/produktkatalog-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/produktkatalog-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bestellung-service/shop-anwendung.bestellung-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bestellung-service/shop-anwendung.bestellung-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server/shop-anwendung.eureka-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server/shop-anwendung.eureka-server.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/produktkatalog-service/shop-anwendung.produktkatalog-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/produktkatalog-service/shop-anwendung.produktkatalog-service.main.iml" />
     </modules>
   </component>
 </project>
