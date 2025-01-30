@@ -1,4 +1,4 @@
-package ch.bbw.m321.backend.bewertung;
+package ch.bbw.m321.bewertungservice.bewertung;
 
 import org.springframework.stereotype.Service;
 

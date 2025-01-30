@@ -5,6 +5,7 @@ function App() {
     const [produktkatalog, setProduktkatalog] = useState<{ name: string }>();
     const [warenkorb, setWarenkorb] = useState<{ product: string }>();
     const [bestellung, setBestellung] = useState<{ bestellung: string }>()
+    const [bewertung, setBewertung] = useState<{ bewertung: string }>()
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -19,6 +20,9 @@ function App() {
 
                 const bestellung = await fetch('http://host.docker.internal:8082/bestellung/getAll');
                 setBestellung(await bestellung.json());
+
+                const bewertung = await fetch('http://host.docker.internal:8083/bewertung/getAll');
+                setBewertung(await bewertung.json());
             } catch (e: any) {
                 setError(e.message);
             }
@@ -49,6 +53,7 @@ function App() {
                 <p>{produktkatalog?.name}</p>
                 <p>{warenkorb?.product}</p>
                 <p>{bestellung?.bestellung}</p>
+                <p>{bewertung?.bewertung}</p>
             </header>
         </div>
     );

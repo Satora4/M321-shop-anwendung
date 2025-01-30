@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/berwertung-service" />
             <option value="$PROJECT_DIR$/bestellung-service" />
             <option value="$PROJECT_DIR$/eureka-server" />
             <option value="$PROJECT_DIR$/produktkatalog-service" />
@@ -30,6 +31,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/bestellung-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/bewertung-service" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/bewertung-service" />
           </set>
         </option>
       </GradleProjectSettings>
