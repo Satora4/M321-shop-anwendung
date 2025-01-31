@@ -17,3 +17,13 @@ INSERT INTO product (id, name, description, price, stock)
 VALUES (1, 'Laptop Pro', 'High-performance laptop for professionals', 1500, 5),
        (2, 'Wireless Mouse', 'Ergonomic wireless mouse with long battery life', 25, 2),
        (3, 'Gaming Chair', 'Comfortable gaming chair with lumbar support', 120, 0);
+
+
+-- Create the "review" table
+CREATE TABLE review (
+                        id SERIAL PRIMARY KEY,
+                        product_id INTEGER NOT NULL,
+                        user_id INTEGER NOT NULL,
+                        rating INTEGER NOT NULL,
+                        comment TEXT
+);
