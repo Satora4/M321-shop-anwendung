@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react";
+import { createOrder } from './bestellung-service';
 
 type Review = {
     id?: number;
@@ -57,6 +58,14 @@ function Bewerten() {
                 console.log("Review added:", addedReview);  // Log the added review
                 setReviews([...reviews, addedReview]); // Liste mit neuer Bewertung aktualisieren
                 setNewReview({ productId: 1, author: "", rating: 5, comment: "" }); // Formular zurücksetzen
+
+                // Create an order when a review is added
+                await createOrder({
+                    customerId: 1, // You can change this to the actual customer ID
+                    orderDate: new Date(),
+                    orderStatus: 'NEW',
+                    orderItems: [`Product ID: ${newReview.productId}, Comment: ${newReview.comment}`],
+                });
             } else {
                 console.error("Fehler beim Hinzufügen der Bewertung");
                 setError("Failed to add review. Please try again later.");

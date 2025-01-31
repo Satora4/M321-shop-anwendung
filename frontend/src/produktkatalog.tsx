@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-
-/**
- * auskommentierten Code führt noch zu Fehlern.
- */
+import { getAllOrders, updateOrder } from './bestellung-service';
 
 type Product = {
     id: number;
@@ -20,7 +17,7 @@ type chartItem = {
 
 function Produktkatalog() {
     const [products, setProducts] = useState<Product[]>([]);
-    // const [chartItem, setChartItem] = useState<chartItem[]>();
+    const [orders, setOrders] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -38,16 +35,9 @@ function Produktkatalog() {
                         setProducts(data);
                     });
 
-                // await fetch('http://host.docker.internal:8091/cart')
-                //     .then((response) => {
-                //         if (!response.ok) {
-                //             throw new Error(`HTTP error! Status: ${response.status}`);
-                //         }
-                //         return response.json();
-                //     })
-                //     .then((data) => {
-                //         setChartItem(data);
-                //     });
+                const ordersData = await getAllOrders();
+                setOrders(ordersData);
+
             } catch (e: any) {
                 setError(e.message);
             }
@@ -55,11 +45,20 @@ function Produktkatalog() {
 
         fetchData()
             .finally(() => setLoading(false));
-    });
+    }, []);
 
     function getProduct(id:number): Product | undefined {
         return products.find((product) => product.id === id);
     }
+
+    const handleUpdateOrderStatus = async (orderId: number, status: string) => {
+        try {
+            const updatedOrder = await updateOrder(orderId, { orderStatus: status });
+            setOrders(orders.map(order => order.id === orderId ? updatedOrder : order));
+        } catch (error) {
+            console.error("Failed to update order status:", error);
+        }
+    };
 
     if (loading) return (
         <div className="App">
@@ -86,14 +85,16 @@ function Produktkatalog() {
                     </li>
                 ))}
             </ul>
-            {/*<h2>Warenkorb</h2>*/}
-            {/*<ul style={{listStyleType: "none", padding: 0, margin: 0}}>*/}
-            {/*    {chartItem?.map((item) => (*/}
-            {/*        <li key={item.productId}>*/}
-            {/*            {getProduct(item.productId)?.name} - {getProduct(item.productId)?.description} - {getProduct(item.productId)?.price}CHF - {getProduct(item.productId)?.stock} Stück*/}
-            {/*        </li>*/}
-            {/*    ))}*/}
-            {/*</ul>*/}
+
+            <h2>Bestellungen</h2>
+            <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
+                {orders.map((order) => (
+                    <li key={order.id}>
+                        Bestellung ID: {order.id} - Status: {order.orderStatus}
+                        <button onClick={() => handleUpdateOrderStatus(order.id, 'COMPLETED')}>Mark as Completed</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
