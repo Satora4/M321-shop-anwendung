@@ -11,7 +11,7 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    private RedisTemplate<String, CartItem> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     private static final String CART_KEY = "cart";
 
@@ -23,8 +23,9 @@ public class CartController {
 
     @DeleteMapping("/{productId}")
     public void removeFromCart(@PathVariable String productId) {
-        List<CartItem> cartItems = redisTemplate.opsForList().range(CART_KEY, 0, -1);
-        for (CartItem item : cartItems) {
+        List<Object> cartItems = redisTemplate.opsForList().range(CART_KEY, 0, -1);
+        for (Object obj : cartItems) {
+            CartItem item = (CartItem) obj;
             if (item.getProductId().equals(productId)) {
                 redisTemplate.opsForList().remove(CART_KEY, 1, item);
                 break;
@@ -33,7 +34,7 @@ public class CartController {
     }
 
     @GetMapping
-    public List<CartItem> getCart() {
+    public List<Object> getCart() {
         return redisTemplate.opsForList().range(CART_KEY, 0, -1);
     }
 }

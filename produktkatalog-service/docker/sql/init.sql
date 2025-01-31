@@ -9,10 +9,11 @@ CREATE TABLE product
     id          BIGINT PRIMARY KEY,
     name        VARCHAR(255) NOT NULL,
     description TEXT,
-    price       BIGINT       NOT NULL
+    price       BIGINT       NOT NULL,
+    stock       INT       default (0)
 );
 
-INSERT INTO product (id, name, description, price)
-VALUES (1, 'Laptop Pro', 'High-performance laptop for professionals', 1500),
-       (2, 'Wireless Mouse', 'Ergonomic wireless mouse with long battery life', 25),
-       (3, 'Gaming Chair', 'Comfortable gaming chair with lumbar support', 120);
+INSERT INTO product (id, name, description, price, stock)
+VALUES (1, 'Laptop Pro', 'High-performance laptop for professionals', 1500, 5),
+       (2, 'Wireless Mouse', 'Ergonomic wireless mouse with long battery life', 25, 2),
+       (3, 'Gaming Chair', 'Comfortable gaming chair with lumbar support', 120, 0);
