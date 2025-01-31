@@ -17,15 +17,6 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/backend" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/bestellung-service" />
         <option name="gradleJvm" value="17" />
         <option name="modules">
