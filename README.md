@@ -95,11 +95,10 @@ Das folgende Dokument beschreibt die Umsetzung des Abschlussprojekts M321. Das P
   - Bestellungsfrontend verbessert und optimiert.
 
 ### Fazit
-Die kontinuierliche Dokumentation der Umsetzungsarbeiten und der Fortschritte hat dazu beigetragen, das Projekt strukturiert und nachvollziehbar zu gestalten. Alle Arbeiten und Ergebnisse sind im Git-Repository dokumentiert und können dort eingesehen werden.
+Alle Arbeiten und Ergebnisse sind im Git-Repository dokumentiert und können dort eingesehen werden.
 
 ---
 
-*Diese Datei wird wöchentlich aktualisiert, um den Fortschritt des Projekts zu dokumentieren.*
 
 ## Startanleitung
 
